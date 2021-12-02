@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ana Clara Barcella Miskulin" />
+    <title>Imposto de Renda</title>
+    <link href="./css/style.css" rel="stylesheet" />
+
+    <div id="titulo">
+        <h1>Calculadora de Imposto de Renda</h1>
+    </div>
+
+</head>
+
+<body>
+
+    <div id="formulario">
+        <form>
+
+            <div id="Nome">
+                <label>Nome:</label>
+            </div>
+            <div>
+                <input type="text" name="nome" id="nome">
+            </div>
+            <div id="Numero">
+                <label>Numero de dependentes:</label>
+            </div>
+            <div>
+                <input type="text" name="numeroD" id="numeroD">
+            </div>
+            <div id="Salario">
+                <label>Salário bruto:</label>
+            </div>
+            <input id="textinput3" name="textinput3" value="" type="text">
+    </div>
+
+    </form>
+    </div>
+
+    <div id="botao">
+        <button onclick="adicionaLinha('tbl')">Adicionar</button>
+    </div>
+
+    <table id="tbl" border="1">
+        <thead id="thead">
+
+            <h1>Resultados</h1>
+
+            <tr>
+                <td>Nome</td>
+                <td>Salario Bruto</td>
+                <td>% desconto INSS</td>
+                <td>Desconto INSS</td>
+                <td>% desconto IRPF</td>
+                <td>Desconto IRPF</td>
+                <td>Salario Liquido</td>
+            </tr>
+
+        </thead>
+    </table>
+
+    <script>
+
+        function adicionaLinha(idTabela) {
+            var valor = document.getElementById("nome").value;
+            var valor2 = document.getElementById("numeroD").value;
+            var valor3 = document.getElementById("textinput3").value;
+            percetual_irpf = 0;
+            percetual_inss = 0;
+
+            if (valor3 <= 1903)
+                imposto = 0;
+            else if (valor3 > 1903 && valor3 < 2827) {
+                imposto = valor3 * 0.075;
+                percetual_irpf = 0.075;
+            }
+            else if (valor3 > 2827 && valor3 < 3752) {
+                imposto = valor3 * 0.15;
+                percetual_irpf = 0.15;
+            }
+            else if (valor3 > 3743 && valor3 < 4665) {
+                imposto = valor3 * 0.2250;
+                percetual_irpf = 0.2250;
+            }
+            else if (valor3 > 4665) {
+                imposto = valor3 * 0.2750;
+                percetual_irpf = 0.2750;
+            }
+            if (valor3 < 1100) {
+                inss = valor3 * 0.075;
+                percetual_inss = 0.075;
+            }
+            if (valor3 > 1101 && valor3 < 2204) {
+                inss = valor3 * 0.09;
+                percetual_inss = 0.09;
+            }
+            if (valor3 > 2205 && valor3 < 3306) {
+                inss = valor3 * 0.12;
+                percetual_inss = 0.12;
+            }
+            if (valor3 > 3306 && valor3 < 6434) {
+                inss = valor3 * 0.14;
+                percetual_inss = 0.14;
+            }
+            sal_liquido = valor3 - inss - imposto;
+
+            var tabela = document.getElementById(idTabela);
+            var numeroLinhas = tabela.rows.length;
+
+            var linha = tabela.insertRow(numeroLinhas);
+            var celula1 = linha.insertCell(0);
+            var celula2 = linha.insertCell(1);
+            var celula3 = linha.insertCell(2);
+            var celula4 = linha.insertCell(3);
+            var celula5 = linha.insertCell(4);
+            var celula6 = linha.insertCell(5);
+            var celula7 = linha.insertCell(6);
+            celula1.innerHTML = valor;
+            celula2.innerHTML = "R$ " + valor3;
+            celula3.innerHTML = percetual_inss;
+            celula4.innerHTML = "R$ " + inss;
+            celula5.innerHTML = percetual_irpf;
+            celula6.innerHTML = "R$ " + imposto;
+            celula7.innerHTML = "R$ " + sal_liquido;
+        }
+    </script>
+
+</body>
+
+</html>

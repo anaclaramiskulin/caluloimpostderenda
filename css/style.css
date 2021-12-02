@@ -1,0 +1,60 @@
+*{
+    margin:0;
+    padding:0;
+}
+#titulo{
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    color: rgb(112 112 112);
+    font-family: Geneva;
+}
+label{
+    font-size: 22px;
+}
+#formulario{
+    padding-left: 2vh;
+}
+#Nome{
+    padding-left: 1vh;
+    font-family: Elvetica;
+    font-size: 24px;
+    color: #707070;
+}
+#Numero{
+    padding-left: 1vh;
+    padding-top: 2vh;
+    font-family: Elvetica;
+    font-size: 24px;
+    color: #707070;
+}
+#Salario{
+    padding-left: 1vh;
+    padding-top: 2vh;
+    font-family: Elvetica;
+    font-size: 24px;
+    color: #707070;
+}
+#botao{
+    padding-left: 6vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    font-family: Elvetica;
+    font-size: 24px;
+}
+#tbl{
+    padding-top: 3vh;
+    padding-bottom: 5vh;
+    padding-left: 8vh;
+    padding-right: 8vh;
+}
+#thead{
+    font-size: 18px;
+    padding-left: 20vh;
+}
+h1{
+    padding-left: 6vh;
+    color: rgb(112 112 112);
+}
+td{
+    color:rgb(112 112 112);
+}
